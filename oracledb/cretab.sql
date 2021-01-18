@@ -1,14 +1,14 @@
-  @ /* ŽÀK—pƒf[ƒ^ì¬ƒXƒNƒŠƒvƒg      @    @  @                    */
-  @/* SYSTEMƒ†[ƒU[(ŠÇ—ŽÒƒ†[ƒU[)‚ÅŽÀs‚µ‚Ä‚­‚¾‚³‚¢  @            */
-   /* •]‰¿”Å‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚½ƒeƒXƒgŠÂ‹«‚È‚Ç‚ÅŽg—p‚µ‚Ä‚­‚¾‚³‚¢B      */
-  /* (–{”ÔŠÂ‹«‚Å‚ÍŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B)                            */
- /* ŽŸ‚ÌƒRƒ}ƒ“ƒh‚ðSYSTEMƒ†[ƒU[‚ÅŽÀs‚·‚é‚ÆŽÀKŠÂ‹«‚ðíœ‚Å‚«‚Ü‚·B*/ 
+  ã€€ /* å®Ÿç¿’ç”¨ãƒ‡ãƒ¼ã‚¿ä½œæˆã‚¹ã‚¯ãƒªãƒ—ãƒˆ      ã€€    ã€€  ã€€                    */
+  ã€€/* SYSTEMãƒ¦ãƒ¼ã‚¶ãƒ¼(ç®¡ç†è€…ãƒ¦ãƒ¼ã‚¶ãƒ¼)ã§å®Ÿè¡Œã—ã¦ãã ã•ã„  ã€€            */
+   /* è©•ä¾¡ç‰ˆã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ãŸãƒ†ã‚¹ãƒˆç’°å¢ƒãªã©ã§ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚      */
+  /* (æœ¬ç•ªç’°å¢ƒã§ã¯ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚)                            */
+ /* æ¬¡ã®ã‚³ãƒžãƒ³ãƒ‰ã‚’SYSTEMãƒ¦ãƒ¼ã‚¶ãƒ¼ã§å®Ÿè¡Œã™ã‚‹ã¨å®Ÿç¿’ç’°å¢ƒã‚’å‰Šé™¤ã§ãã¾ã™ã€‚*/ 
 /* DROP USER ora01 CASCADE;                                        */
 
 SPOOL setup.log
 PROMPT
 PROMPT "Clean Up ..."
-PROMPT "‰‰ñŽÀsŽž‚ÍƒGƒ‰[‚ª”­¶‚µ‚Ü‚·‚ª–â‘è‚ ‚è‚Ü‚¹‚ñB"
+PROMPT "åˆå›žå®Ÿè¡Œæ™‚ã¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã™ãŒå•é¡Œã‚ã‚Šã¾ã›ã‚“ã€‚"
 DROP USER ora01 CASCADE;
 
 PROMPT
@@ -24,7 +24,7 @@ PROMPT
 PROMPT "ora01" 's DATA Creating...
 CONNECT ora01/oracle
 
-/* Create Table for ŽÀK */
+/* Create Table for å®Ÿç¿’ */
 
 CREATE TABLE departments
        (deptno NUMBER(2) CONSTRAINT pk_dept PRIMARY KEY,
@@ -43,42 +43,42 @@ CREATE TABLE employees
 	deptno NUMBER(2) CONSTRAINT fk_deptno REFERENCES departments(deptno));
 
 INSERT INTO departments VALUES
-	(10,'ŠÇ—','‘åŽè’¬');
+	(10,'ç®¡ç†','å¤§æ‰‹ç”º');
 INSERT INTO departments VALUES 
-	(20,'Œ¤‹†ŠJ”­','‰¡•l');
+	(20,'ç ”ç©¶é–‹ç™º','æ¨ªæµœ');
 INSERT INTO departments VALUES
-	(30,'‰c‹Æ','•iì');
+	(30,'å–¶æ¥­','å“å·');
 INSERT INTO departments VALUES
-	(40,'à–±','“Œ‹ž');
+	(40,'è²¡å‹™','æ±äº¬');
 
 INSERT INTO employees VALUES
-	(1001,'²“¡','sato','ŽÐ’·',NULL,to_date('2001-02-25','yyyy-mm-dd'),500000,NULL,10);
+	(1001,'ä½è—¤','sato','ç¤¾é•·',NULL,to_date('2001-02-25','yyyy-mm-dd'),500000,NULL,10);
 INSERT INTO employees VALUES
-	(1002,'—é–Ø','suzuki','Ž––±',1013,to_date('2000-03-26','yyyy-mm-dd'),200000,NULL,20);
+	(1002,'éˆ´æœ¨','suzuki','äº‹å‹™',1013,to_date('2000-03-26','yyyy-mm-dd'),200000,NULL,20);
 INSERT INTO employees VALUES
-	(1003,'‚‹´','takahashi','‰c‹Æ',1007,to_date('2000-05-30 ','yyyy-mm-dd'),300000,30000,30);
+	(1003,'é«˜æ©‹','takahashi','å–¶æ¥­',1007,to_date('2000-05-30 ','yyyy-mm-dd'),300000,30000,30);
 INSERT INTO employees VALUES
-	(1004,'“c’†','tanaka','‰c‹Æ',1007,to_date('2002-06-02','yyyy-mm-dd'),355000,50000,30);
+	(1004,'ç”°ä¸­','tanaka','å–¶æ¥­',1007,to_date('2002-06-02','yyyy-mm-dd'),355000,50000,30);
 INSERT INTO employees VALUES
-	(1005,'“n•Ó','watanabe','•”’·',1001,to_date('2002-07-11','yyyy-mm-dd'),280000,NULL,20);
+	(1005,'æ¸¡è¾º','watanabe','éƒ¨é•·',1001,to_date('2002-07-11','yyyy-mm-dd'),280000,NULL,20);
 INSERT INTO employees VALUES
-	(1006,'ˆÉ“¡','ito','‰c‹Æ',1007,to_date('2008-01-06','yyyy-mm-dd'),300000,140000,30);
+	(1006,'ä¼Šè—¤','ito','å–¶æ¥­',1007,to_date('2008-01-06','yyyy-mm-dd'),300000,140000,30);
 INSERT INTO employees VALUES
-	(1007,'ŽR–{','yamamoto','•”’·',1001,to_date('2000-08-09','yyyy-mm-dd'),285000,NULL,30);
+	(1007,'å±±æœ¬','yamamoto','éƒ¨é•·',1001,to_date('2000-08-09','yyyy-mm-dd'),285000,NULL,30);
 INSERT INTO employees VALUES
-	(1008,'’†‘º','nakamura','•”’·',1001,to_date('2000-09-17','yyyy-mm-dd'),245000,NULL,10);
+	(1008,'ä¸­æ‘','nakamura','éƒ¨é•·',1001,to_date('2000-09-17','yyyy-mm-dd'),245000,NULL,10);
 INSERT INTO employees VALUES
-	(1009,'¬—Ñ','kobayashi','Žå”C',1005,to_date('2006-10-21','yyyy-mm-dd'),300000,NULL,20);
+	(1009,'å°æž—','kobayashi','ä¸»ä»»',1005,to_date('2006-10-21','yyyy-mm-dd'),300000,NULL,20);
 INSERT INTO employees VALUES
-	(1010,'Ä“¡','saito','‰c‹Æ',1007,to_date('2001-12-17','yyyy-mm-dd'),150000,0,30);
+	(1010,'æ–‰è—¤','saito','å–¶æ¥­',1007,to_date('2001-12-17','yyyy-mm-dd'),150000,0,30);
 INSERT INTO employees VALUES
-	(1011,'‰Á“¡','kato','Ž––±',1009,to_date('2006-10-21','yyyy-mm-dd'),110000,NULL,20);
+	(1011,'åŠ è—¤','kato','äº‹å‹™',1009,to_date('2006-10-21','yyyy-mm-dd'),110000,NULL,20);
 INSERT INTO employees VALUES
-	(1012,'‹g“c','yoshida','Ž––±',1007,to_date('2009-03-13','yyyy-mm-dd'),295000,NULL,30);
+	(1012,'å‰ç”°','yoshida','äº‹å‹™',1007,to_date('2009-03-13','yyyy-mm-dd'),295000,NULL,30);
 INSERT INTO employees VALUES
-	(1013,'ŽR“c','yamada','Žå”C',1005,to_date('2001-03-13','yyyy-mm-dd'),280000,NULL,20);
+	(1013,'å±±ç”°','yamada','ä¸»ä»»',1005,to_date('2001-03-13','yyyy-mm-dd'),280000,NULL,20);
 INSERT INTO employees VALUES
-	(1014,'²X–Ø','sasaki','Ž––±',1008,to_date('2004-05-02','yyyy-mm-dd'),230000,NULL,10);
+	(1014,'ä½ã€…æœ¨','sasaki','äº‹å‹™',1008,to_date('2004-05-02','yyyy-mm-dd'),230000,NULL,10);
 
 CREATE TABLE salgrades
       ( grade CHAR(1) CONSTRAINT pk_grade PRIMARY KEY,
@@ -98,16 +98,16 @@ CREATE TABLE customers
 	 phone		VARCHAR2(12),
 	 credit_rating	VARCHAR2(9));
 
-INSERT INTO customers VALUES (1000,'•iì¤Ž–','“Œ‹ž“s`‹æ‚P|‚˜|‚˜','03-1234-xxxx','—D—Ç');
-INSERT INTO customers VALUES (1001,'‰¡•l¤“X','‰¡•lŽsˆéŽq‹æ‚Q|‚˜|‚˜','045-753-xxxx','—v’ˆÓ');
-INSERT INTO customers VALUES (1002,'ìŒû‚â','ìŒûŽs–{’¬‚P|‚˜|‚˜‚˜','048-336-xxxx','—v’ˆÓ');
-INSERT INTO customers VALUES (1003,'›~¤“X','‰¡•lŽs’ßŒ©‹æ‚Q|‚˜‚˜','045-505-xxxx','—Ç');
-INSERT INTO customers VALUES (1004,'ìèƒXƒgƒA','ìèŽsìè‹æ‚P‚O|‚˜‚˜','044-567-xxxx','—D—Ç');
-INSERT INTO customers VALUES (1005,'‚c‚aƒ}[ƒg','“Œ‹ž“s”Â‹´‹æ‚X|‚˜‚˜','03-3334-xxxx','—D—Ç');
-INSERT INTO customers VALUES (1006,'‘åŽè’¬•¶‹ï','“Œ‹ž“sç‘ã“c‹æ‚P|‚˜|‚˜','03-2236-xxxx','—Ç');
-INSERT INTO customers VALUES (1007,'ƒoƒ‰ƒGƒeƒBƒOƒbƒY','‚³‚¢‚½‚ÜŽs’†‰›‹æ‚˜‚˜‚˜','048-556-xxxx','—Ç');
-INSERT INTO customers VALUES (1008,'ƒ[ƒ‹ƒhƒXƒgƒA','‰¡•lŽs_“Þì‹æ‚˜‚˜|‚˜','045-654-xxxx','—v’ˆÓ');
-INSERT INTO customers VALUES (1009,'‚c‚aƒXƒgƒA','“Œ‹ž“sa’J‹æ‚˜‚˜|‚˜‚˜','03-5789-xxxx','—v’ˆÓ');
+INSERT INTO customers VALUES (1000,'å“å·å•†äº‹','æ±äº¬éƒ½æ¸¯åŒºï¼‘âˆ’ï½˜âˆ’ï½˜','03-1234-xxxx','å„ªè‰¯');
+INSERT INTO customers VALUES (1001,'æ¨ªæµœå•†åº—','æ¨ªæµœå¸‚ç£¯å­åŒºï¼’âˆ’ï½˜âˆ’ï½˜','045-753-xxxx','è¦æ³¨æ„');
+INSERT INTO customers VALUES (1002,'å·å£ã‚„','å·å£å¸‚æœ¬ç”ºï¼‘âˆ’ï½˜âˆ’ï½˜ï½˜','048-336-xxxx','è¦æ³¨æ„');
+INSERT INTO customers VALUES (1003,'â—‹Ã—å•†åº—','æ¨ªæµœå¸‚é¶´è¦‹åŒºï¼’âˆ’ï½˜ï½˜','045-505-xxxx','è‰¯');
+INSERT INTO customers VALUES (1004,'å·å´Žã‚¹ãƒˆã‚¢','å·å´Žå¸‚å·å´ŽåŒºï¼‘ï¼âˆ’ï½˜ï½˜','044-567-xxxx','å„ªè‰¯');
+INSERT INTO customers VALUES (1005,'ï¼¤ï¼¢ãƒžãƒ¼ãƒˆ','æ±äº¬éƒ½æ¿æ©‹åŒºï¼™âˆ’ï½˜ï½˜','03-3334-xxxx','å„ªè‰¯');
+INSERT INTO customers VALUES (1006,'å¤§æ‰‹ç”ºæ–‡å…·','æ±äº¬éƒ½åƒä»£ç”°åŒºï¼‘âˆ’ï½˜âˆ’ï½˜','03-2236-xxxx','è‰¯');
+INSERT INTO customers VALUES (1007,'ãƒãƒ©ã‚¨ãƒ†ã‚£ã‚°ãƒƒã‚º','ã•ã„ãŸã¾å¸‚ä¸­å¤®åŒºï½˜ï½˜ï½˜','048-556-xxxx','è‰¯');
+INSERT INTO customers VALUES (1008,'ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚¹ãƒˆã‚¢','æ¨ªæµœå¸‚ç¥žå¥ˆå·åŒºï½˜ï½˜âˆ’ï½˜','045-654-xxxx','è¦æ³¨æ„');
+INSERT INTO customers VALUES (1009,'ï¼¤ï¼¢ã‚¹ãƒˆã‚¢','æ±äº¬éƒ½æ¸‹è°·åŒºï½˜ï½˜âˆ’ï½˜ï½˜','03-5789-xxxx','è¦æ³¨æ„');
 
 
 CREATE TABLE products
@@ -115,34 +115,34 @@ CREATE TABLE products
 	 PNAME		VARCHAR2(30),
 	 PRICE		NUMBER(6));
 
-INSERT INTO products VALUES ('A01','100‰~ƒ{[ƒ‹ƒyƒ“',100);
-INSERT INTO products VALUES ('A02','c‹­ƒVƒƒ[ƒvƒyƒ“ƒVƒ‹',100);
-INSERT INTO products VALUES ('A03','10Fƒ{[ƒ‹ƒyƒ“',300);
-INSERT INTO products VALUES ('A04','Å‚‹‰–œ”N•M',1000);
-INSERT INTO products VALUES ('A05','‚È‚È‚¢‚ë‰”•M',30);
-INSERT INTO products VALUES ('A06','Œ’Nƒ{[ƒ‹ƒyƒ“',500);
+INSERT INTO products VALUES ('A01','100å††ãƒœãƒ¼ãƒ«ãƒšãƒ³',100);
+INSERT INTO products VALUES ('A02','èŠ¯å¼·ã‚·ãƒ£ãƒ¼ãƒ—ãƒšãƒ³ã‚·ãƒ«',100);
+INSERT INTO products VALUES ('A03','10è‰²ãƒœãƒ¼ãƒ«ãƒšãƒ³',300);
+INSERT INTO products VALUES ('A04','æœ€é«˜ç´šä¸‡å¹´ç­†',1000);
+INSERT INTO products VALUES ('A05','ãªãªã„ã‚é‰›ç­†',30);
+INSERT INTO products VALUES ('A06','å¥åº·ãƒœãƒ¼ãƒ«ãƒšãƒ³',500);
 
-INSERT INTO products VALUES ('B01','–³’nA4ƒm[ƒg',160);
-INSERT INTO products VALUES ('B02','ƒƒ‹ƒwƒ“A4ƒm[ƒg',160);
-INSERT INTO products VALUES ('B03','‰¼–Êƒ‰ƒCƒ_[ƒƒ‚’ ',150);
-INSERT INTO products VALUES ('B04','ˆÃ‹LƒXƒ€[ƒYƒm[ƒg',200);
-INSERT INTO products VALUES ('B05','–³’nB5ƒm[ƒg',160);
-INSERT INTO products VALUES ('B06','ƒ|ƒPƒ‚ƒ“B5ƒm[ƒg',160);
+INSERT INTO products VALUES ('B01','ç„¡åœ°A4ãƒŽãƒ¼ãƒˆ',160);
+INSERT INTO products VALUES ('B02','ãƒ¡ãƒ«ãƒ˜ãƒ³A4ãƒŽãƒ¼ãƒˆ',160);
+INSERT INTO products VALUES ('B03','ä»®é¢ãƒ©ã‚¤ãƒ€ãƒ¼ãƒ¡ãƒ¢å¸³',150);
+INSERT INTO products VALUES ('B04','æš—è¨˜ã‚¹ãƒ ãƒ¼ã‚ºãƒŽãƒ¼ãƒˆ',200);
+INSERT INTO products VALUES ('B05','ç„¡åœ°B5ãƒŽãƒ¼ãƒˆ',160);
+INSERT INTO products VALUES ('B06','ãƒã‚±ãƒ¢ãƒ³B5ãƒŽãƒ¼ãƒˆ',160);
 
-INSERT INTO products VALUES ('C01','ƒLƒŒƒCˆóüA4—pŽ†',500);
-INSERT INTO products VALUES ('C02','ƒLƒŒƒCˆóüB5—pŽ†',500);
-INSERT INTO products VALUES ('C03','ƒLƒŒƒCˆóüA3—pŽ†',600);
-INSERT INTO products VALUES ('C04','ƒ\ƒRƒ\ƒRƒLƒŒƒCA4—pŽ†',350);
-INSERT INTO products VALUES ('C05','ƒ\ƒRƒ\ƒRƒLƒŒƒCB5—pŽ†',350);
-INSERT INTO products VALUES ('C06','–Ú‚É—D‚µ‚¢A4—pŽ†',400);
+INSERT INTO products VALUES ('C01','ã‚­ãƒ¬ã‚¤å°åˆ·A4ç”¨ç´™',500);
+INSERT INTO products VALUES ('C02','ã‚­ãƒ¬ã‚¤å°åˆ·B5ç”¨ç´™',500);
+INSERT INTO products VALUES ('C03','ã‚­ãƒ¬ã‚¤å°åˆ·A3ç”¨ç´™',600);
+INSERT INTO products VALUES ('C04','ã‚½ã‚³ã‚½ã‚³ã‚­ãƒ¬ã‚¤A4ç”¨ç´™',350);
+INSERT INTO products VALUES ('C05','ã‚½ã‚³ã‚½ã‚³ã‚­ãƒ¬ã‚¤B5ç”¨ç´™',350);
+INSERT INTO products VALUES ('C06','ç›®ã«å„ªã—ã„A4ç”¨ç´™',400);
 
-INSERT INTO products VALUES ('D01','‚Ë‚è‚Ë‚èÁ‚µƒSƒ€',50);
-INSERT INTO products VALUES ('D02','‚È‚ñ‚Å‚àÁ‹ŽÁ‚µƒSƒ€',100);
-INSERT INTO products VALUES ('D03','ƒLƒGƒi[ƒCÁ‚µƒSƒ€',200);
-INSERT INTO products VALUES ('D04','100%ƒ}ƒbƒVƒC³‰t',350);
+INSERT INTO products VALUES ('D01','ã­ã‚Šã­ã‚Šæ¶ˆã—ã‚´ãƒ ',50);
+INSERT INTO products VALUES ('D02','ãªã‚“ã§ã‚‚æ¶ˆåŽ»æ¶ˆã—ã‚´ãƒ ',100);
+INSERT INTO products VALUES ('D03','ã‚­ã‚¨ãƒŠãƒ¼ã‚¤æ¶ˆã—ã‚´ãƒ ',200);
+INSERT INTO products VALUES ('D04','100%ãƒžãƒƒã‚·ãƒ­ä¿®æ­£æ¶²',350);
 
-INSERT INTO products VALUES ('D15','ƒJƒŒ[‚Ì‚èÁ‚µƒSƒ€',80);
-INSERT INTO products VALUES ('D16','‚¢‚¿‚²‚Ì‚èÁ‚µƒSƒ€',80);
+INSERT INTO products VALUES ('D15','ã‚«ãƒ¬ãƒ¼ã®é¦™ã‚Šæ¶ˆã—ã‚´ãƒ ',80);
+INSERT INTO products VALUES ('D16','ã„ã¡ã”ã®é¦™ã‚Šæ¶ˆã—ã‚´ãƒ ',80);
 
 
 CREATE TABLE orders
@@ -153,19 +153,19 @@ CREATE TABLE orders
 	 salesman_no	NUMBER(4) CONSTRAINT ord_emp_fk REFERENCES employees(empno),
 	 payment_type	VARCHAR2(15));
 
-INSERT INTO orders VALUES (1,1001,'2009-12-20','2009-12-27',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (2,1001,'2009-12-21','2009-12-27',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (3,1001,'2010-01-10','2010-01-17',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (4,1002,'2010-01-11','2010-01-18',1010,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (5,1008,'2010-01-15','2010-01-22',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (6,1005,'2010-01-20','2010-01-27',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (7,1007,'2010-01-22','2010-01-29',1006,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (8,1006,'2010-01-22','2010-01-29',1010,'Œ»‹à');
-INSERT INTO orders VALUES (9,1007,'2010-01-25','2010-02-03',1006,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (10,1003,'2010-02-15','2010-02-22',1003,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (11,1007,'2010-02-20','2010-02-27',1006,'ƒNƒŒƒWƒbƒg');
-INSERT INTO orders VALUES (12,1006,'2010-03-16',null,1010,'Œ»‹à');
-INSERT INTO orders VALUES (13,1009,'2010-04-02',null,1006,'Œ»‹à');
+INSERT INTO orders VALUES (1,1001,'2009-12-20','2009-12-27',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (2,1001,'2009-12-21','2009-12-27',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (3,1001,'2010-01-10','2010-01-17',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (4,1002,'2010-01-11','2010-01-18',1010,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (5,1008,'2010-01-15','2010-01-22',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (6,1005,'2010-01-20','2010-01-27',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (7,1007,'2010-01-22','2010-01-29',1006,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (8,1006,'2010-01-22','2010-01-29',1010,'ç¾é‡‘');
+INSERT INTO orders VALUES (9,1007,'2010-01-25','2010-02-03',1006,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (10,1003,'2010-02-15','2010-02-22',1003,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (11,1007,'2010-02-20','2010-02-27',1006,'ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ');
+INSERT INTO orders VALUES (12,1006,'2010-03-16',null,1010,'ç¾é‡‘');
+INSERT INTO orders VALUES (13,1009,'2010-04-02',null,1006,'ç¾é‡‘');
 
 CREATE TABLE ord_details
 	(ordno		NUMBER(8)   CONSTRAINT ord_det_ord_fk REFERENCES orders(ordno),
