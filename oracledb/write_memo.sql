@@ -79,11 +79,12 @@ insert into test_number_type values (11.1);
 insert into test_number_type values (1.11);
 select * from test_number_type;
 -- 列別名はテーブル別名のように変数として利用できはしない
+-- 列別名にスペースを含めたり、大文字／小文字の区別をつけさせるなら二重引用符で囲む必要がある（一重引用符ではNG）
 select num1 基準値, num1 + 1, num1 * num1 乗算, num1/3 "$# Num1/3" from test_number_type;
 
 create table comparison_operator_info (
 	operator varchar(20) primary key,
-	description varchar(36)
+	description varchar(500)
 );
 insert into comparison_operator_info values ('=', '統合');
 insert into comparison_operator_info values ('>', '大なり');
@@ -93,8 +94,19 @@ insert into comparison_operator_info values ('<=', '以下');
 insert into comparison_operator_info values ('<>, !=, ^=', '不等号');
 insert into comparison_operator_info values ('BETWEEN a AND b', 'a以上b以下');
 insert into comparison_operator_info values ('NOT BETWEEN a AND b', 'aより小さい or bより大きい');
-insert into comparison_operator_info values ('IN(a, b, c)', 'a, b, cのいずれか');
+insert into comparison_operator_info values ('IN(a, b, c)', 'a, b, cのいずれか ※実行時にはこの演算子は論理演算子「OR」を使った記法に評価されなおす。そのためORを使った記法とINを使った記法は、同じ内容の比較を行うのであれば、パフォーマンス上の差異は存在しない');
+insert into comparison_operator_info values ('NOT IN(a, b, c)', 'a, b, cのいずれでもない');
 insert into comparison_operator_info values ('LIKE', '文字パターン一致');
+insert into comparison_operator_info values ('NOT LIKE', '文字パターン不一致');
 insert into comparison_operator_info values ('IS NULL', '値がNULLかどうか');
+insert into comparison_operator_info values ('IS NOT NULL', '値がNULL以外かどうか');
 
 select operator 演算子, description 説明, length(description), lengthb(description) from comparison_operator_info where length(description) > 5;
+
+prompt "注意！ 「IS NOT NULL演算子」のみ、NOTの位置が他と異なる"
+prompt "また、NULL値の比較は「IS NULL」「IS NOT NULL」にしかできない"
+prompt "もしこれらの比較演算子以外にNULL値を渡した場合、比較結果は常にNULLとなり、データ取得件数がゼロになる（エラーにはならない）"
+prompt "---------------------------"
+prompt "※便宜上、NOT付きの演算子も含めて「比較演算子」とここでは紹介したが、実際にはNOTは比較演算子ではなく「論理演算子」のひとつである（AND, OR, NOT）"
+prompt "---------------------------"
+prompt "なおNULL値ORDER BYで必ず「もっとも大きい値」として扱われる（つまり昇順ソートなら一番最後に表示される）"

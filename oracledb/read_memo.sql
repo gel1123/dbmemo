@@ -13,3 +13,15 @@ select job from employees;
 select distinct job from employees;
 -- 複数列の組み合わせで重複排除（distinctを複数回書くわけではない）
 select distinct deptno, job from employees;
+
+-- LIKE演算子で使えるワイルドカード
+prompt "<< like '%消しゴム' ※「%」は「0文字以上の任意文字」を示す >>"
+select pname from products where pname like '%消しゴム';
+prompt "<< like '________' ※「_」は「1文字の任意文字」を示す >>"
+select pname from products where pname like '_________';
+
+-- LIKE演算子でエスケープする方法（ESCAPEオプションの利用）
+prompt "<< ESCAPEオプションでエスケープ文字を指定する >>"
+select pname from products where pname like '100$%%' escape '$';
+prompt "注意！ エスケープ文字に指定できるのは「1バイト文字」のみ"
+-- select pname from products where pname like '100■%%' escape '■';
