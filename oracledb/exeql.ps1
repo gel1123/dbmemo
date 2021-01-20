@@ -1,0 +1,1 @@
+echo "$($Args[0])" | sqlplus.exe system/0000
