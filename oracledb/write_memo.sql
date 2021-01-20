@@ -3,6 +3,7 @@ drop table command_info;
 drop table select_type_info;
 drop table data_type_info;
 drop table test_number_type;
+drop table comparison_operator_info;
 
 create table command_type_info (
 	type varchar(12) primary key,
@@ -77,3 +78,23 @@ insert into test_number_type values (1.1);
 insert into test_number_type values (11.1);
 insert into test_number_type values (1.11);
 select * from test_number_type;
+-- 列別名はテーブル別名のように変数として利用できはしない
+select num1 基準値, num1 + 1, num1 * num1 乗算, num1/3 "$# Num1/3" from test_number_type;
+
+create table comparison_operator_info (
+	operator varchar(20) primary key,
+	description varchar(36)
+);
+insert into comparison_operator_info values ('=', '統合');
+insert into comparison_operator_info values ('>', '大なり');
+insert into comparison_operator_info values ('>=', '以上');
+insert into comparison_operator_info values ('<', '小なり');
+insert into comparison_operator_info values ('<=', '以下');
+insert into comparison_operator_info values ('<>, !=, ^=', '不等号');
+insert into comparison_operator_info values ('BETWEEN a AND b', 'a以上b以下');
+insert into comparison_operator_info values ('NOT BETWEEN a AND b', 'aより小さい or bより大きい');
+insert into comparison_operator_info values ('IN(a, b, c)', 'a, b, cのいずれか');
+insert into comparison_operator_info values ('LIKE', '文字パターン一致');
+insert into comparison_operator_info values ('IS NULL', '値がNULLかどうか');
+
+select operator 演算子, description 説明, length(description), lengthb(description) from comparison_operator_info where length(description) > 5;
