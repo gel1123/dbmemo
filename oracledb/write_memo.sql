@@ -4,6 +4,7 @@ drop table select_type_info;
 drop table data_type_info;
 drop table test_number_type;
 drop table comparison_operator_info;
+drop table sga_component_info;
 
 create table command_type_info (
 	type varchar(12) primary key,
@@ -110,3 +111,16 @@ prompt "---------------------------"
 prompt "※便宜上、NOT付きの演算子も含めて「比較演算子」とここでは紹介したが、実際にはNOTは比較演算子ではなく「論理演算子」のひとつである（AND, OR, NOT）"
 prompt "---------------------------"
 prompt "なおNULL値ORDER BYで必ず「もっとも大きい値」として扱われる（つまり昇順ソートなら一番最後に表示される）"
+
+create table sga_component_info (
+	component varchar(50),
+	involved_bgprocess varchar(50),
+	description varchar(1000)
+);
+insert into sga_component_info values ('データベースバッファキャッシュ', 'DBWn, CKPT', 'データファイルから読み込んだブロックをキャッシュする。また、更新済みのブロックを一時的に保管する');
+insert into sga_component_info values ('共有プール', '-', '解析済みSQLやデータディクショナリの情報などをキャッシュする');
+insert into sga_component_info values ('REDOログバッファ', 'LGWR, ARCn', 'REDOログファイルに書き込む前のREDOデータ（更新履歴）を一時保管する');
+insert into sga_component_info values ('Javaプール', '-', 'Javaストアドプログラム(データベースに保管されたプログラム)が利用する');
+insert into sga_component_info values ('ラージプール', '-', 'バックアップ／並列処理などの作業領域として利用');
+
+select * from sga_component_info;
