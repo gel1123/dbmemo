@@ -13,8 +13,11 @@ DROP USER ora01 CASCADE;
 
 PROMPT
 PROMPT "ora01" User Creating...
-CREATE USER ora01
-IDENTIFIED BY oracle;
+
+-- user name is "ora01"
+-- ユーザ認証方式：パスワード認証（password is "oracle"）
+CREATE USER ora01 IDENTIFIED BY oracle;
+
 GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO ora01;
 GRANT CREATE SYNONYM TO ora01;
 GRANT CREATE ROLE TO ora01;
