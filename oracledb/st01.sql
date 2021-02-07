@@ -12,3 +12,6 @@ rpad(substr(phone, 1, 4), 8, '*')
 || substr(phone, 9, 1)
 || lpad(substr(phone, 13, 1), 4, '*')
 "phone_for-cs", phone from member;
+
+
+select instr(phone, '8'), phone from member;
