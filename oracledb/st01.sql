@@ -1,4 +1,4 @@
-truncate table member;
+drop table member;
 create table member (
 	id number(3),
 	phone varchar(13)
@@ -28,3 +28,12 @@ trim(both '*' from '***hoge***'),
 replace('hoge', 'ho'),
 replace('hoge', 'ho', 'fu')
 from member;
+
+select
+sysdate,
+round(sysdate, 'year'),
+trunc(sysdate, 'dd')-trunc(round(sysdate, 'month'), 'dd'),
+trunc(sysdate),
+round(sysdate),
+months_between(round(sysdate, 'year'), sysdate)
+from dual;
