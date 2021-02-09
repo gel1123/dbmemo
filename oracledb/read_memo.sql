@@ -25,3 +25,9 @@ prompt "<< ESCAPEオプションでエスケープ文字を指定する >>"
 select pname from products where pname like '100$%%' escape '$';
 prompt "注意！ エスケープ文字に指定できるのは「1バイト文字」のみ"
 -- select pname from products where pname like '100■%%' escape '■';
+
+
+
+-- 集約に関する勉強
+select deptno, avg(sal) from employees group by deptno;
+select max(avg(sal)) from employees group by deptno;

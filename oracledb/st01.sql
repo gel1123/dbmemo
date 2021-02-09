@@ -6,7 +6,7 @@ create table member (
 insert into member values (1, '090-1234-5678');
 insert into member values (2, '080-1234-5678');
 insert into member values (3, '070-1234-5678');
-insert into member values (4);
+insert into member values (4, NULL);
 insert into member values (NULL, NULL);
 insert into member values (NULL, '070-1234-5678');
 
