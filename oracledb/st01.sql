@@ -36,6 +36,6 @@ trunc(sysdate, 'dd')-trunc(round(sysdate, 'month'), 'dd'),
 trunc(sysdate),
 round(sysdate),
 months_between(round(sysdate, 'year'), sysdate),
-to_char(to_date('94年03月15日', 'RR"年"mm"月"dd"日"'), 'YYYY"年"')
+to_char(to_date('94年03月15日', 'RR"年"mm"月"dd"日"'), 'YYYY"年"'),
 to_char(to_date('94年03月15日', 'YY"年"mm"月"dd"日"'), 'YYYY"年"')
 from dual;
