@@ -124,3 +124,21 @@ insert into sga_component_info values ('Javaプール', '-', 'Javaストアド�
 insert into sga_component_info values ('ラージプール', '-', 'バックアップ／並列処理などの作業領域として利用');
 
 select * from sga_component_info;
+
+
+
+-- ----------------------------------------------------------
+drop table emp_copy;
+drop table dept_copy;
+create table emp_copy as select * from employees;
+create table dept_copy as select * from departments;
+
+insert into dept_copy values(50, '教育', '大手町');
+insert into dept_copy(dname, deptno, loc) values('システム', 60, '横浜');
+insert into dept_copy(dname, deptno) values('経理', 70);
+insert into dept_copy(dname, deptno, loc) values('生産管理', 90, '');
+insert into emp_copy(empno, ename, hiredate) values(1015, '山口', sysdate);
+select * from emp_copy where deptno is null;
+select * from emp_copy where empno='1010';
+update emp_copy set ename='林', deptno=20 where empno=1010;
+select * from emp_copy where empno='1010';
