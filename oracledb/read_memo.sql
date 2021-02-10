@@ -37,3 +37,8 @@ select deptno, job, count(*), avg(sal) from employees group by deptno, job havin
 select deptno, job, count(*), avg(sal) from employees group by deptno, job having count(*) >= 2 and 200000 < avg(sal) and job = '主任';
 
 select e.empno, e.ename, e.sal, sg.grade, sg.losal, sg.hisal from employees e join salgrades sg on e.sal between sg.losal and sg.hisal;
+
+-- 色々なorder by
+select * from employees order by comm nulls first;
+select * from employees order by comm nulls last;
+select * from employees order by 1;
