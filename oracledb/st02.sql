@@ -15,3 +15,4 @@ select * from seq;
 
 -- row_limiting_clause
 select * from seq order by num desc offset 2 rows fetch first 3 row with ties;
+select * from seq order by num desc fetch first 70 percent row with ties;
