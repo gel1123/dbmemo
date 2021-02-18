@@ -42,9 +42,11 @@ create table ord_items(
 	ord_no number(4) default ord_seq.nextval not null,
 	qty number(3),
 	expiry_date date,
-	constraint it_pk primary key(ord_no),
-	constraint ord_fk foreign key(ord_no)
-		references ords(ord_no)
+	-- constraint it_pk primary key(ord_no),
+	-- constraint ord_fk foreign key(ord_no)
+	--	references ords(ord_no)
+	primary key(ord_no), -- <= constraint + 制約名 は省略可能
+	foreign key(ord_no) references ords(ord_no) -- <= 同上
 );
 insert into ord_items(expiry_date) values(sysdate+1);
 insert into ord_items(expiry_date) values(sysdate+2);
