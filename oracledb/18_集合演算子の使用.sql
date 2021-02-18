@@ -4,7 +4,7 @@ create sequence sec
 	increment by 2
 	start with 0
 	maxvalue 5
-	minvalue 0 -- default val: 0
+	minvalue 0 -- default値は1であり, start withはminvalue以上の値を要求するので、ここは明示的に0を指定やる必要がある
 	cycle
 	cache 3 -- キャッシュは1サイクルより小さな値の必要あり
 ;
