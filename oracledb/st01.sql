@@ -6,6 +6,9 @@ create table member (
 insert into member values (1, '090-1234-5678');
 insert into member values (2, '080-1234-5678');
 insert into member values (3, '070-1234-5678');
+insert into member values (4, NULL);
+insert into member values (NULL, NULL);
+insert into member values (NULL, '070-1234-5678');
 
 select id,
 rpad(substr(phone, 1, 4), 8, '*')
@@ -35,5 +38,7 @@ round(sysdate, 'year'),
 trunc(sysdate, 'dd')-trunc(round(sysdate, 'month'), 'dd'),
 trunc(sysdate),
 round(sysdate),
-months_between(round(sysdate, 'year'), sysdate)
+months_between(round(sysdate, 'year'), sysdate),
+to_char(to_date('94年03月15日', 'RR"年"mm"月"dd"日"'), 'YYYY"年"'),
+to_char(to_date('94年03月15日', 'YY"年"mm"月"dd"日"'), 'YYYY"年"')
 from dual;
