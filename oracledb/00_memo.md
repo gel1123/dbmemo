@@ -8,8 +8,13 @@ systemユーザでCDB1に接続し、alter session set container=pdb1; でPDB1�
 ユーザ（p1_user1）を作成して適当に色々な権限を付与するなどした。
 
 上記CDB, PDBを一発で接続できるようにtnsnames.oraを編集して下記で接続できるようにした。
-* sqlplus system@cdb1
-* sqlplus p1_user1@pdb1
+```
+# ネットサービス名CDB1としてCDB1をtnsname.oraに設定済み
+sqlplus system@cdb1
+
+# ネットサービス名PDB1としてPDB1をtnsname.oraに設定済み
+sqlplus p1_user1@pdb1
+```
 
 tnsnames.oraの編集でなにげにつまづいたのは、初期化パラメータの設定だ。
 
